@@ -168,6 +168,38 @@
     font-family: 'DM Mono', monospace;
   }
 
+  /* ── AGENCY BADGE ── */
+  .agency-bar {
+    background: var(--palm);
+    padding: 18px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  .agency-bar .ag-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    color: #fff;
+    font-weight: 700;
+  }
+
+  .cred-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(233,196,106,0.2);
+    border: 1px solid rgba(233,196,106,0.4);
+    border-radius: 20px;
+    padding: 4px 12px;
+    font-size: 11px;
+    color: var(--gold);
+    font-family: 'DM Mono', monospace;
+    letter-spacing: 1px;
+  }
+
   /* ── SECTION WRAPPER ── */
   .section {
     max-width: 860px;
@@ -198,7 +230,6 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
     gap: 16px;
-    margin-bottom: 0;
   }
 
   .hotel-card {
@@ -218,6 +249,8 @@
     height: 100%;
     background: var(--teal);
   }
+
+  .hotel-card.featured::before { background: var(--coral); }
 
   .hotel-night {
     font-family: 'DM Mono', monospace;
@@ -252,7 +285,7 @@
     font-weight: 500;
   }
 
-  /* ── INCLUSIONS GRID ── */
+  /* ── INCLUSIONS ── */
   .incl-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -300,10 +333,7 @@
 
   .day-card:last-child::before { display: none; }
 
-  .day-label {
-    text-align: center;
-    flex-shrink: 0;
-  }
+  .day-label { text-align: center; flex-shrink: 0; }
 
   .day-num {
     width: 52px;
@@ -345,6 +375,13 @@
     text-transform: uppercase;
     color: var(--coral);
     margin-bottom: 6px;
+  }
+
+  .day-drive {
+    font-size: 11px;
+    color: var(--muted);
+    margin-bottom: 10px;
+    font-style: italic;
   }
 
   .day-title {
@@ -397,7 +434,7 @@
     padding-top: 12px;
   }
 
-  /* ── COST SECTION ── */
+  /* ── COST ── */
   .cost-band {
     background: var(--palm);
     color: #fff;
@@ -486,13 +523,6 @@
 
   .footer strong { color: var(--gold); }
 
-  /* ── DIVIDER ── */
-  .wave-divider {
-    background: var(--sand);
-    padding: 0;
-    line-height: 0;
-  }
-
   @media (max-width: 600px) {
     .day-card { grid-template-columns: 60px 1fr; gap: 14px; }
     .day-card::before { left: 26px; }
@@ -526,15 +556,24 @@
   <div class="stat"><div class="stat-num">5</div><div class="stat-label">Nights</div></div>
   <div class="stat"><div class="stat-num">4</div><div class="stat-label">Cities</div></div>
   <div class="stat"><div class="stat-num">3</div><div class="stat-label">Travellers</div></div>
-  <div class="stat"><div class="stat-num">₹24.5K</div><div class="stat-label">Per Person</div></div>
+  <div class="stat"><div class="stat-num">₹24K</div><div class="stat-label">Per Person</div></div>
   <div class="stat"><div class="stat-num">∞</div><div class="stat-label">Memories</div></div>
+</div>
+
+<!-- AGENCY BAR -->
+<div class="agency-bar">
+  <div class="ag-name">🏅 View Holiday Trip Pvt. Ltd.</div>
+  <span class="cred-chip">✈ IATA Accredited</span>
+  <span class="cred-chip">🏭 ISO 9001:2015</span>
+  <span class="cred-chip">📅 Since 2014</span>
+  <span class="cred-chip">⭐ 4.6 · 3400+ Reviews</span>
 </div>
 
 <!-- HOTELS -->
 <div style="background: var(--sand);">
   <div class="section">
     <p class="section-eyebrow">Where You'll Rest</p>
-    <h2 class="section-title">Accommodation</h2>
+    <h2 class="section-title">Accommodation — All 3★ Deluxe</h2>
     <div class="hotels">
       <div class="hotel-card">
         <div class="hotel-night">Night 1</div>
@@ -544,19 +583,19 @@
       </div>
       <div class="hotel-card">
         <div class="hotel-night">Night 2</div>
-        <div class="hotel-name">Ashley Resort</div>
+        <div class="hotel-name">Misthill Rest</div>
         <div class="hotel-city">📍 Nuwara Eliya</div>
         <div class="hotel-room">Deluxe Room</div>
       </div>
       <div class="hotel-card">
         <div class="hotel-night">Night 3</div>
-        <div class="hotel-name">Tea Tree Resort</div>
+        <div class="hotel-name">The Tea Tree Resort</div>
         <div class="hotel-city">📍 Ella</div>
-        <div class="hotel-room">Standard Room</div>
+        <div class="hotel-room">Deluxe Room</div>
       </div>
-      <div class="hotel-card" style="--teal: #E76F51;">
+      <div class="hotel-card featured">
         <div class="hotel-night">Nights 4 & 5</div>
-        <div class="hotel-name">Laluna Beach Resort</div>
+        <div class="hotel-name">Laluna Ayurveda Resort</div>
         <div class="hotel-city">📍 Bentota</div>
         <div class="hotel-room">Deluxe Room</div>
       </div>
@@ -573,13 +612,15 @@
       <div class="incl-item"><span class="incl-icon">🏨</span> 3-Star Hotel Accommodation</div>
       <div class="incl-item"><span class="incl-icon">🍳</span> Daily Breakfast at Hotel</div>
       <div class="incl-item"><span class="incl-icon">🚗</span> Private AC Vehicle Throughout</div>
-      <div class="incl-item"><span class="incl-icon">🗣️</span> English-Speaking Chauffeur-Guide</div>
-      <div class="incl-item"><span class="incl-icon">💧</span> 1 Water Bottle on Arrival/Person</div>
-      <div class="incl-item"><span class="incl-icon">📱</span> 1 Local SIM Card (per family)</div>
+      <div class="incl-item"><span class="incl-icon">🗣️</span> English-Speaking Driver-Guide</div>
+      <div class="incl-item"><span class="incl-icon">💧</span> Water Bottle on Arrival</div>
+      <div class="incl-item"><span class="incl-icon">📱</span> 1 Free SIM Card on Arrival</div>
       <div class="incl-item"><span class="incl-icon">✈️</span> Airport Pickup & Drop</div>
       <div class="incl-item"><span class="incl-icon">🛣️</span> Complementary Highway Tickets</div>
-      <div class="incl-item"><span class="incl-icon">🍵</span> Tea Factory Visit & Cup of Tea</div>
+      <div class="incl-item"><span class="incl-icon">🍵</span> Tea Factory Visit + Cup of Tea</div>
       <div class="incl-item"><span class="incl-icon">🏭</span> Batik, Spice, Gem & Mask Visits</div>
+      <div class="incl-item"><span class="incl-icon">💆</span> Head & Shoulder Massage at Spice Garden</div>
+      <div class="incl-item"><span class="incl-icon">🎭</span> Free Cultural Show (tickets at Gem Museum)</div>
     </div>
   </div>
 </div>
@@ -600,18 +641,21 @@
         </div>
         <div class="day-content">
           <div class="day-route">Airport → Kandy</div>
+          <div class="day-drive">🚗 2 hr 48 min · 122.4 km · Private AC Vehicle</div>
           <div class="day-title">Elephants, Temples & a Royal City</div>
           <ul class="activity-list">
             <li>Airport Pickup & Welcome</li>
             <li class="paid">Pinnawala Elephant Orphanage $8</li>
             <li class="paid">Tooth Relic Temple $5</li>
             <li class="paid">Botanical Garden $8</li>
-            <li>Gem Museum 🆓</li>
+            <li>Kandy Gem Museum 🆓</li>
+            <li>Batik Factory 🆓</li>
             <li>Spice Garden + Herbal Massage 🆓</li>
             <li>Kandy View Point 🆓</li>
+            <li>Wood Carving Centre 🆓</li>
             <li>Cultural Show 🆓</li>
           </ul>
-          <p class="day-note">🌙 Overnight: Ceyloni Panorama Resort, Kandy</p>
+          <p class="day-note">🌙 Overnight: Ceyloni Panorama Resort, Kandy · Check-in 2 PM</p>
         </div>
       </div>
 
@@ -623,18 +667,21 @@
         </div>
         <div class="day-content">
           <div class="day-route">Kandy → Nuwara Eliya</div>
-          <div class="day-title">Misty Hills & Strawberry Dreams</div>
+          <div class="day-drive">🚗 2 hr 20 min · 76.2 km · Private AC Vehicle</div>
+          <div class="day-title">Misty Hills, Tea & Mini England</div>
           <ul class="activity-list">
             <li>Ramboda Waterfalls 🆓</li>
+            <li>Mini Waterfalls 🆓</li>
             <li>Tea Plantations 🆓</li>
+            <li>Scenic Landscape 🆓</li>
             <li class="paid">Victoria Park $2</li>
-            <li>Seetha Hanuman Temple 🆓</li>
-            <li>Ashok Vatika 🆓</li>
+            <li>Seetha Temple 🆓</li>
+            <li>Hanuman Temple 🆓</li>
             <li class="paid">Gregory Lake $3</li>
             <li>Strawberry Farm 🆓</li>
             <li class="paid">Horse Riding $10 ⚡optional</li>
           </ul>
-          <p class="day-note">🌙 Overnight: Ashley Resort, Nuwara Eliya</p>
+          <p class="day-note">🌙 Overnight: Misthill Rest, Nuwara Eliya · Check-in 2 PM</p>
         </div>
       </div>
 
@@ -646,15 +693,15 @@
         </div>
         <div class="day-content">
           <div class="day-route">Nuwara Eliya → Ella</div>
-          <div class="day-title">Nine Arches & Mountain Air</div>
+          <div class="day-title">Nine Arches, Peaks & Mountain Magic</div>
           <ul class="activity-list">
             <li>Ella Rock 🆓</li>
             <li>Ella Gap 🆓</li>
             <li>Little Adam's Peak 🆓</li>
-            <li>Ella Ravana Adventure Park</li>
+            <li>Ella Adventure Park</li>
             <li>Nine Arch Bridge 🆓</li>
           </ul>
-          <p class="day-note">🚂 Train from Ella is scenic but tickets subject to availability · 🌙 Overnight: Tea Tree Resort, Ella</p>
+          <p class="day-note">🚂 Scenic train ride subject to availability · 🌙 Overnight: The Tea Tree Resort, Ella · Check-in 2 PM</p>
         </div>
       </div>
 
@@ -665,16 +712,19 @@
           <div class="day-date">02 JUL<br>WED</div>
         </div>
         <div class="day-content">
-          <div class="day-route">Ella → Bentota</div>
-          <div class="day-title">Turtles, Rivers & the Coast</div>
+          <div class="day-route">Ella → Bentota via Mirissa · Galle · Hikkaduwa</div>
+          <div class="day-drive">🚗 3 hr 57 min · 253 km · Private AC Vehicle</div>
+          <div class="day-title">Southern Coast — Beaches, Forts & Coral</div>
           <ul class="activity-list">
-            <li class="paid">Kosgoda Turtle Hatchery $5</li>
-            <li>Mask Museum, Ambalangoda 🆓</li>
-            <li class="paid">Madu Ganga River Safari $20</li>
-            <li>Ma Duwa Village 🆓</li>
+            <li>Secret Beach Mirissa 🆓</li>
+            <li>Coconut Tree Hill 🆓</li>
+            <li class="paid">Whale & Dolphin Watching $50 ⚡optional</li>
+            <li>Galle Dutch Fort 🆓</li>
+            <li class="paid">Hikkaduwa Coral Formations $20</li>
+            <li>Unawatuna Beach 🆓</li>
             <li class="paid">Water Sports ⚡optional</li>
           </ul>
-          <p class="day-note">🌙 Overnight: Laluna Beach Resort, Bentota (Night 1 of 2)</p>
+          <p class="day-note">🌙 Overnight: Laluna Ayurveda Resort, Bentota (Night 1 of 2)</p>
         </div>
       </div>
 
@@ -685,18 +735,16 @@
           <div class="day-date">03 JUL<br>THU</div>
         </div>
         <div class="day-content">
-          <div class="day-route">Bentota → Mirissa → Galle → Hikkaduwa</div>
-          <div class="day-title">The Southern Coast in Full Glory</div>
+          <div class="day-route">Bentota Local Day</div>
+          <div class="day-title">Turtles, Rivers & the Lagoon</div>
           <ul class="activity-list">
-            <li>Secret Beach Mirissa 🆓</li>
-            <li>Coconut Tree Hill 🆓</li>
-            <li class="paid">Whale & Dolphin Watching $50 ⚡optional</li>
-            <li>Galle Dutch Fort 🆓</li>
-            <li class="paid">Hikkaduwa Coral Formations $20</li>
-            <li>Unawatuna Beach 🆓</li>
+            <li class="paid">Kosgoda Turtle Hatchery $5</li>
+            <li>Mask Museum, Ambalangoda 🆓</li>
+            <li class="paid">Madu Ganga River Safari $20</li>
+            <li>Ma Duwa Village 🆓</li>
             <li class="paid">Water Sports ⚡optional</li>
           </ul>
-          <p class="day-note">🌙 Overnight: Laluna Beach Resort, Bentota (Night 2 of 2)</p>
+          <p class="day-note">🌙 Overnight: Laluna Ayurveda Resort, Bentota (Night 2 of 2)</p>
         </div>
       </div>
 
@@ -708,17 +756,20 @@
         </div>
         <div class="day-content">
           <div class="day-route">Bentota → Colombo → Airport</div>
-          <div class="day-title">City Farewell & Departure</div>
+          <div class="day-drive">🚗 1 hr 26 min · 82.4 km · Private AC Vehicle</div>
+          <div class="day-title">Capital City Farewell & Departure</div>
           <ul class="activity-list">
             <li>Galle Face Green 🆓</li>
             <li>Old Parliament 🆓</li>
             <li>Independence Square 🆓</li>
             <li class="paid">Gangarama Temple $2</li>
             <li>Local Market 🆓</li>
+            <li>Floating Market 🆓</li>
             <li>Beira Lake 🆓</li>
-            <li>Lotus Tower 🆓</li>
+            <li>Odel Shopping 🆓</li>
+            <li>House of Fashion 🆓</li>
           </ul>
-          <p class="day-note">✈️ Departure from Colombo Airport at 6 PM · Arrive early!</p>
+          <p class="day-note">✈️ Transfer to Airport · Check-out by 12 PM · Depart for home!</p>
         </div>
       </div>
 
@@ -729,10 +780,10 @@
 <!-- COST -->
 <div class="cost-band">
   <p class="section-eyebrow">The Numbers</p>
-  <div class="cost-main">₹24,500</div>
-  <p class="cost-sub">Per person · Triple sharing · USD 260 equiv.</p>
+  <div class="cost-main">₹24,000</div>
+  <p class="cost-sub">Per person · Triple sharing · 3 Adults</p>
   <div class="cost-breakdown">
-    <div class="cost-item"><strong>₹73,500</strong> Total Package (3 pax)</div>
+    <div class="cost-item"><strong>₹72,000</strong> Total Package (3 pax)</div>
     <div class="cost-item"><strong>~$73+</strong> Extra per person (entry fees)</div>
     <div class="cost-item"><strong>~₹500–800</strong> Per meal, per person</div>
   </div>
@@ -750,15 +801,19 @@
       <li>Airfare / Train Tickets</li>
       <li>Tips & Gratuities</li>
       <li>Bar, Laundry & Personal Expenses</li>
+      <li>Music / Show Tickets</li>
+      <li>PCR Test & Travel Insurance</li>
     </ul>
   </div>
 </div>
 
 <!-- FOOTER -->
 <div class="footer">
-  <p>Organised by <strong>SAN Vacations</strong> · GSTIN 07AEUFS9741N1ZV · Akarsh Jain +91 98911 03297</p>
-  <p style="margin-top:8px;">sales3.san@gmail.com · sanvacations.com · Emergency: +91 9910057858</p>
-  <p style="margin-top:16px; font-size:10px; opacity:0.4;">Terms apply · Quote only, not a booking confirmation · Rates subject to availability</p>
+  <p>Organised by <strong>View Holiday Trip Pvt. Ltd.</strong> · IATA Accredited · ISO 9001:2015 · Est. 2014</p>
+  <p style="margin-top:8px;">Expert Mogna: <strong>9311771179</strong> · Director Dinesh Kumar: 9311539278 · Office: 011 46008566</p>
+  <p style="margin-top:8px;">info@viewholidaytrip.com · viewholidaytrip.com</p>
+  <p style="margin-top:8px;">Bank: ICICI · A/C: 344305000477 · IFSC: ICIC0003443 · View Holiday Trip Pvt. Ltd.</p>
+  <p style="margin-top:16px; font-size:10px; opacity:0.4;">Quote only · Not a booking confirmation · Rates subject to availability · Trip ID: 128540</p>
 </div>
 
 </body>
