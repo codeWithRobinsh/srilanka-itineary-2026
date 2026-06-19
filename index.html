@@ -9,15 +9,20 @@
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
-    --ocean:    #1B6CA8;
-    --teal:     #2A9D8F;
-    --sand:     #F4ECD8;
-    --palm:     #264653;
-    --coral:    #E76F51;
-    --gold:     #E9C46A;
-    --white:    #FDFAF4;
-    --ink:      #1A1A2E;
-    --muted:    #6B7280;
+    --green-dark:   #1A4731;
+    --green-mid:    #2D7A4F;
+    --green-bright: #3AAA6B;
+    --green-light:  #E8F5EE;
+    --green-pale:   #F2FAF5;
+    --accent:       #27AE60;
+    --gold:         #C8A84B;
+    --white:        #FFFFFF;
+    --off-white:    #FAFCFB;
+    --border:       #D4EAD9;
+    --text-dark:    #0F2B1C;
+    --text-mid:     #2D5A3D;
+    --text-muted:   #6B9B7A;
+    --coral:        #E05C3A;
   }
 
   html { scroll-behavior: smooth; }
@@ -25,7 +30,7 @@
   body {
     font-family: 'DM Sans', sans-serif;
     background: var(--white);
-    color: var(--ink);
+    color: var(--text-dark);
     line-height: 1.6;
     overflow-x: hidden;
   }
@@ -34,8 +39,8 @@
   .hero {
     min-height: 100vh;
     background:
-      linear-gradient(160deg, rgba(27,108,168,0.82) 0%, rgba(42,157,143,0.70) 50%, rgba(38,70,83,0.88) 100%),
-      url('https://images.unsplash.com/photo-1586861203927-800a5acdce4d?w=1600&q=80') center/cover no-repeat;
+      linear-gradient(160deg, rgba(10,50,25,0.78) 0%, rgba(26,71,49,0.65) 50%, rgba(15,43,28,0.82) 100%),
+      url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1600&q=80') center/cover no-repeat;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -49,7 +54,7 @@
     content: '';
     position: absolute;
     bottom: 0; left: 0; right: 0;
-    height: 80px;
+    height: 100px;
     background: linear-gradient(to top, var(--white), transparent);
   }
 
@@ -59,8 +64,8 @@
     font-size: 11px;
     letter-spacing: 3px;
     text-transform: uppercase;
-    color: var(--gold);
-    border: 1px solid var(--gold);
+    color: #A8EFC4;
+    border: 1px solid rgba(168,239,196,0.5);
     border-radius: 2px;
     padding: 6px 16px;
     margin-bottom: 28px;
@@ -68,24 +73,25 @@
 
   .hero h1 {
     font-family: 'Playfair Display', serif;
-    font-size: clamp(48px, 10vw, 96px);
+    font-size: clamp(52px, 10vw, 100px);
     font-weight: 700;
     color: #fff;
-    line-height: 1.05;
-    letter-spacing: -1px;
+    line-height: 1.0;
+    letter-spacing: -2px;
     margin-bottom: 8px;
   }
 
   .hero h1 em {
     font-style: italic;
-    color: var(--gold);
+    color: #A8EFC4;
   }
 
   .hero-sub {
-    font-size: 18px;
-    color: rgba(255,255,255,0.75);
+    font-size: 17px;
+    color: rgba(255,255,255,0.7);
     margin-bottom: 40px;
     font-weight: 300;
+    letter-spacing: 1px;
   }
 
   .travellers {
@@ -93,26 +99,25 @@
     gap: 12px;
     flex-wrap: wrap;
     justify-content: center;
-    margin-bottom: 48px;
+    margin-bottom: 44px;
   }
 
   .traveller-chip {
-    background: rgba(255,255,255,0.15);
+    background: rgba(255,255,255,0.12);
     backdrop-filter: blur(8px);
-    border: 1px solid rgba(255,255,255,0.3);
+    border: 1px solid rgba(168,239,196,0.35);
     border-radius: 40px;
-    padding: 8px 20px;
+    padding: 9px 22px;
     color: #fff;
     font-size: 14px;
     font-weight: 500;
+    letter-spacing: 0.3px;
   }
 
-  .traveller-chip span { margin-right: 6px; }
-
   .quote-box {
-    max-width: 560px;
-    background: rgba(233,196,106,0.15);
-    border-left: 3px solid var(--gold);
+    max-width: 520px;
+    background: rgba(168,239,196,0.1);
+    border-left: 3px solid #A8EFC4;
     padding: 18px 24px;
     text-align: left;
     border-radius: 0 8px 8px 0;
@@ -122,66 +127,65 @@
     font-family: 'Playfair Display', serif;
     font-style: italic;
     font-size: 17px;
-    color: rgba(255,255,255,0.92);
-    line-height: 1.5;
+    color: rgba(255,255,255,0.90);
+    line-height: 1.55;
   }
 
   .quote-box cite {
     display: block;
-    margin-top: 8px;
-    font-size: 12px;
-    color: var(--gold);
+    margin-top: 10px;
+    font-size: 11px;
+    color: #A8EFC4;
     font-style: normal;
     font-family: 'DM Mono', monospace;
-    letter-spacing: 1px;
+    letter-spacing: 1.5px;
   }
 
-  /* ── TRIP STATS ── */
+  /* ── STATS ── */
   .stats {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
     gap: 1px;
-    background: #e5e0d5;
-    margin: 0;
+    background: var(--border);
   }
 
   .stat {
-    background: var(--sand);
-    padding: 28px 24px;
+    background: var(--white);
+    padding: 28px 20px;
     text-align: center;
   }
 
   .stat-num {
     font-family: 'Playfair Display', serif;
-    font-size: 36px;
+    font-size: 38px;
     font-weight: 700;
-    color: var(--teal);
+    color: var(--green-mid);
     line-height: 1;
   }
 
   .stat-label {
-    font-size: 11px;
-    letter-spacing: 2px;
+    font-size: 10px;
+    letter-spacing: 2.5px;
     text-transform: uppercase;
-    color: var(--muted);
+    color: var(--text-muted);
     margin-top: 6px;
     font-family: 'DM Mono', monospace;
   }
 
-  /* ── AGENCY BADGE ── */
+  /* ── AGENCY BAR ── */
   .agency-bar {
-    background: var(--palm);
-    padding: 18px 24px;
+    background: var(--green-dark);
+    padding: 16px 24px;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 20px;
+    gap: 16px;
     flex-wrap: wrap;
   }
 
-  .agency-bar .ag-name {
+  .ag-name {
     font-family: 'Playfair Display', serif;
-    font-size: 18px;
+    font-size: 17px;
     color: #fff;
     font-weight: 700;
   }
@@ -189,157 +193,146 @@
   .cred-chip {
     display: inline-flex;
     align-items: center;
-    gap: 6px;
-    background: rgba(233,196,106,0.2);
-    border: 1px solid rgba(233,196,106,0.4);
+    gap: 5px;
+    background: rgba(168,239,196,0.15);
+    border: 1px solid rgba(168,239,196,0.3);
     border-radius: 20px;
     padding: 4px 12px;
-    font-size: 11px;
-    color: var(--gold);
+    font-size: 10px;
+    color: #A8EFC4;
     font-family: 'DM Mono', monospace;
-    letter-spacing: 1px;
+    letter-spacing: 0.8px;
   }
 
-  /* ── SECTION WRAPPER ── */
+  /* ── SECTION ── */
   .section {
-    max-width: 860px;
+    max-width: 880px;
     margin: 0 auto;
     padding: 64px 24px;
   }
 
   .section-eyebrow {
     font-family: 'DM Mono', monospace;
-    font-size: 11px;
+    font-size: 10px;
     letter-spacing: 3px;
     text-transform: uppercase;
-    color: var(--teal);
-    margin-bottom: 10px;
+    color: var(--green-bright);
+    margin-bottom: 8px;
   }
 
   .section-title {
     font-family: 'Playfair Display', serif;
-    font-size: 32px;
+    font-size: 34px;
     font-weight: 700;
-    color: var(--palm);
-    margin-bottom: 32px;
-    line-height: 1.2;
+    color: var(--green-dark);
+    margin-bottom: 36px;
+    line-height: 1.15;
   }
 
   /* ── HOTEL CARDS ── */
   .hotels {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(195px, 1fr));
     gap: 16px;
   }
 
   .hotel-card {
-    background: #fff;
-    border-radius: 12px;
-    padding: 20px;
-    border: 1px solid #e8e3d9;
-    position: relative;
+    background: var(--white);
+    border-radius: 14px;
     overflow: hidden;
+    border: 1px solid var(--border);
+    box-shadow: 0 2px 12px rgba(26,71,49,0.07);
   }
 
-  .hotel-card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0;
-    width: 4px;
-    height: 100%;
-    background: var(--teal);
+  .hotel-img {
+    width: 100%;
+    height: 140px;
+    object-fit: cover;
+    display: block;
   }
 
-  .hotel-card.featured::before { background: var(--coral); }
+  .hotel-body { padding: 16px 18px 18px; }
 
   .hotel-night {
     font-family: 'DM Mono', monospace;
     font-size: 10px;
     letter-spacing: 2px;
     text-transform: uppercase;
-    color: var(--coral);
-    margin-bottom: 6px;
+    color: var(--green-bright);
+    margin-bottom: 5px;
   }
 
   .hotel-name {
     font-family: 'Playfair Display', serif;
     font-size: 16px;
     font-weight: 700;
-    color: var(--palm);
+    color: var(--green-dark);
     margin-bottom: 4px;
   }
 
-  .hotel-city {
-    font-size: 13px;
-    color: var(--muted);
-  }
+  .hotel-city { font-size: 13px; color: var(--text-muted); }
 
   .hotel-room {
     margin-top: 10px;
     font-size: 11px;
-    background: var(--sand);
+    background: var(--green-light);
+    color: var(--green-mid);
     display: inline-block;
     padding: 3px 10px;
     border-radius: 20px;
-    color: var(--palm);
-    font-weight: 500;
+    font-weight: 600;
   }
 
   /* ── INCLUSIONS ── */
   .incl-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 12px;
+    gap: 10px;
   }
 
   .incl-item {
     display: flex;
     align-items: flex-start;
     gap: 12px;
-    padding: 14px 16px;
-    background: #fff;
+    padding: 13px 16px;
+    background: var(--green-pale);
     border-radius: 10px;
-    border: 1px solid #eee;
-    font-size: 14px;
-    color: var(--palm);
+    border: 1px solid var(--border);
+    font-size: 13.5px;
+    color: var(--text-mid);
+    font-weight: 500;
   }
 
-  .incl-icon {
-    font-size: 20px;
-    flex-shrink: 0;
-    margin-top: 1px;
-  }
+  .incl-icon { font-size: 18px; flex-shrink: 0; margin-top: 1px; }
 
   /* ── DAY TIMELINE ── */
-  .timeline { position: relative; }
-
   .day-card {
     display: grid;
-    grid-template-columns: 100px 1fr;
-    gap: 24px;
-    margin-bottom: 48px;
+    grid-template-columns: 90px 1fr;
+    gap: 20px;
+    margin-bottom: 52px;
     position: relative;
   }
 
   .day-card::before {
     content: '';
     position: absolute;
-    left: 46px;
-    top: 64px;
-    bottom: -48px;
+    left: 41px;
+    top: 60px;
+    bottom: -52px;
     width: 2px;
-    background: linear-gradient(to bottom, var(--teal), transparent);
+    background: linear-gradient(to bottom, var(--green-bright), transparent);
   }
 
   .day-card:last-child::before { display: none; }
 
-  .day-label { text-align: center; flex-shrink: 0; }
+  .day-label { text-align: center; }
 
   .day-num {
-    width: 52px;
-    height: 52px;
+    width: 48px;
+    height: 48px;
     border-radius: 50%;
-    background: var(--teal);
+    background: var(--green-mid);
     color: #fff;
     font-family: 'Playfair Display', serif;
     font-size: 20px;
@@ -348,38 +341,62 @@
     align-items: center;
     justify-content: center;
     margin: 0 auto 8px;
-    box-shadow: 0 4px 16px rgba(42,157,143,0.35);
+    box-shadow: 0 4px 16px rgba(45,122,79,0.4);
   }
 
   .day-date {
     font-family: 'DM Mono', monospace;
-    font-size: 10px;
+    font-size: 9.5px;
     letter-spacing: 1px;
-    color: var(--muted);
-    text-align: center;
-    line-height: 1.3;
+    color: var(--text-muted);
+    line-height: 1.4;
   }
 
   .day-content {
-    background: #fff;
+    background: var(--white);
     border-radius: 16px;
-    padding: 24px 28px;
-    border: 1px solid #ede8de;
-    box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+    overflow: hidden;
+    border: 1px solid var(--border);
+    box-shadow: 0 2px 16px rgba(26,71,49,0.06);
   }
+
+  /* Photo strip */
+  .photo-strip {
+    display: grid;
+    gap: 3px;
+    height: 180px;
+  }
+
+  .photo-strip.p1 { grid-template-columns: 1fr; }
+  .photo-strip.p2 { grid-template-columns: 1fr 1fr; }
+  .photo-strip.p3 { grid-template-columns: 2fr 1fr; }
+  .photo-strip.p3-alt { grid-template-columns: 1fr 1fr 1fr; }
+
+  .photo-strip img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .photo-strip .tall {
+    grid-row: span 1;
+  }
+
+  .day-inner { padding: 22px 26px 24px; }
 
   .day-route {
     font-family: 'DM Mono', monospace;
-    font-size: 11px;
+    font-size: 10px;
     letter-spacing: 2px;
     text-transform: uppercase;
-    color: var(--coral);
-    margin-bottom: 6px;
+    color: var(--green-bright);
+    margin-bottom: 4px;
   }
 
   .day-drive {
-    font-size: 11px;
-    color: var(--muted);
+    font-size: 11.5px;
+    color: var(--text-muted);
     margin-bottom: 10px;
     font-style: italic;
   }
@@ -388,106 +405,111 @@
     font-family: 'Playfair Display', serif;
     font-size: 22px;
     font-weight: 700;
-    color: var(--palm);
+    color: var(--green-dark);
     margin-bottom: 16px;
+    line-height: 1.2;
   }
 
   .activity-list {
     list-style: none;
     display: flex;
     flex-wrap: wrap;
-    gap: 8px;
+    gap: 7px;
   }
 
   .activity-list li {
     display: flex;
     align-items: center;
-    gap: 6px;
-    font-size: 13px;
-    background: var(--sand);
+    gap: 5px;
+    font-size: 12.5px;
+    background: var(--green-light);
+    color: var(--green-dark);
     padding: 5px 12px;
     border-radius: 20px;
-    color: var(--palm);
     font-weight: 500;
   }
 
   .activity-list li.paid {
-    background: #fef3ec;
-    border: 1px solid #f4c4a8;
+    background: #FEF3EE;
+    border: 1px solid #F4C4A8;
     color: var(--coral);
   }
 
   .activity-list li::before {
     content: '✦';
-    font-size: 8px;
-    color: var(--teal);
+    font-size: 7px;
+    color: var(--green-bright);
   }
 
   .activity-list li.paid::before { color: var(--coral); }
 
   .day-note {
     margin-top: 14px;
-    font-size: 12.5px;
-    color: var(--muted);
+    font-size: 12px;
+    color: var(--text-muted);
     font-style: italic;
-    border-top: 1px solid #f0ebe0;
+    border-top: 1px solid var(--green-light);
     padding-top: 12px;
   }
 
-  /* ── COST ── */
+  /* ── COST BAND ── */
   .cost-band {
-    background: var(--palm);
+    background: var(--green-dark);
     color: #fff;
     padding: 64px 24px;
     text-align: center;
   }
 
-  .cost-band .section-eyebrow { color: var(--gold); }
+  .cost-band .section-eyebrow { color: #A8EFC4; }
 
   .cost-main {
     font-family: 'Playfair Display', serif;
-    font-size: clamp(48px, 10vw, 80px);
+    font-size: clamp(52px, 10vw, 84px);
     font-weight: 700;
-    color: var(--gold);
+    color: #A8EFC4;
     line-height: 1;
     margin: 12px 0 4px;
   }
 
   .cost-sub {
-    font-size: 14px;
-    color: rgba(255,255,255,0.55);
-    margin-bottom: 32px;
+    font-size: 13px;
+    color: rgba(255,255,255,0.45);
+    margin-bottom: 36px;
     font-family: 'DM Mono', monospace;
+    letter-spacing: 1px;
   }
 
   .cost-breakdown {
     display: flex;
-    gap: 24px;
+    gap: 20px;
     flex-wrap: wrap;
     justify-content: center;
-    max-width: 600px;
+    max-width: 620px;
     margin: 0 auto;
   }
 
   .cost-item {
-    background: rgba(255,255,255,0.08);
-    border-radius: 10px;
-    padding: 16px 24px;
-    font-size: 14px;
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(168,239,196,0.2);
+    border-radius: 12px;
+    padding: 18px 28px;
+    font-size: 13px;
+    color: rgba(255,255,255,0.7);
   }
 
   .cost-item strong {
     display: block;
-    font-size: 22px;
+    font-size: 24px;
     font-family: 'Playfair Display', serif;
-    color: var(--gold);
+    color: #A8EFC4;
+    margin-bottom: 4px;
   }
 
   /* ── EXCLUSIONS ── */
   .excl-list {
     list-style: none;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
     gap: 10px;
   }
 
@@ -496,11 +518,11 @@
     align-items: center;
     gap: 10px;
     font-size: 13.5px;
-    color: var(--muted);
-    padding: 10px 14px;
-    background: #fafaf8;
+    color: var(--text-muted);
+    padding: 11px 16px;
+    background: var(--green-pale);
     border-radius: 8px;
-    border: 1px solid #eee;
+    border: 1px solid var(--border);
   }
 
   .excl-list li::before {
@@ -512,21 +534,24 @@
 
   /* ── FOOTER ── */
   .footer {
-    background: var(--ink);
-    color: rgba(255,255,255,0.45);
+    background: var(--text-dark);
+    color: rgba(255,255,255,0.4);
     text-align: center;
-    padding: 32px 24px;
-    font-size: 12px;
+    padding: 36px 24px;
+    font-size: 11.5px;
     font-family: 'DM Mono', monospace;
-    letter-spacing: 1px;
+    letter-spacing: 0.8px;
+    line-height: 1.8;
   }
 
-  .footer strong { color: var(--gold); }
+  .footer strong { color: #A8EFC4; }
 
   @media (max-width: 600px) {
-    .day-card { grid-template-columns: 60px 1fr; gap: 14px; }
-    .day-card::before { left: 26px; }
-    .day-num { width: 42px; height: 42px; font-size: 16px; }
+    .day-card { grid-template-columns: 56px 1fr; gap: 12px; }
+    .day-card::before { left: 24px; }
+    .day-num { width: 40px; height: 40px; font-size: 16px; }
+    .photo-strip { height: 140px; }
+    .day-inner { padding: 16px 18px 18px; }
   }
 </style>
 </head>
@@ -536,12 +561,12 @@
 <section class="hero">
   <div class="badge">✈ Sri Lanka · 29 Jun – 04 Jul 2026</div>
   <h1>Island of<br><em>Serendipity</em></h1>
-  <p class="hero-sub">5 Nights · 6 Days · 3 Very Brave Souls</p>
+  <p class="hero-sub">5 Nights &nbsp;·&nbsp; 6 Days &nbsp;·&nbsp; 3 Very Brave Souls</p>
 
   <div class="travellers">
-    <div class="traveller-chip"><span>🧳</span> Lucky Raj</div>
-    <div class="traveller-chip"><span>🌺</span> Krity Sharma</div>
-    <div class="traveller-chip"><span>🦋</span> Sushma Swaraj</div>
+    <div class="traveller-chip">🧳 Lucky Raj</div>
+    <div class="traveller-chip">🌺 Krity Sharma</div>
+    <div class="traveller-chip">🦋 Sushma Swaraj</div>
   </div>
 
   <div class="quote-box">
@@ -570,41 +595,53 @@
 </div>
 
 <!-- HOTELS -->
-<div style="background: var(--sand);">
+<div style="background: var(--green-pale);">
   <div class="section">
     <p class="section-eyebrow">Where You'll Rest</p>
     <h2 class="section-title">Accommodation — All 3★ Deluxe</h2>
     <div class="hotels">
       <div class="hotel-card">
-        <div class="hotel-night">Night 1</div>
-        <div class="hotel-name">Ceyloni Panorama Resort</div>
-        <div class="hotel-city">📍 Kandy</div>
-        <div class="hotel-room">Deluxe Room</div>
+        <img class="hotel-img" src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=400&q=80" alt="Kandy hotel">
+        <div class="hotel-body">
+          <div class="hotel-night">Night 1</div>
+          <div class="hotel-name">Ceyloni Panorama Resort</div>
+          <div class="hotel-city">📍 Kandy</div>
+          <div class="hotel-room">Deluxe Room</div>
+        </div>
       </div>
       <div class="hotel-card">
-        <div class="hotel-night">Night 2</div>
-        <div class="hotel-name">Misthill Rest</div>
-        <div class="hotel-city">📍 Nuwara Eliya</div>
-        <div class="hotel-room">Deluxe Room</div>
+        <img class="hotel-img" src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=400&q=80" alt="Nuwara Eliya hotel">
+        <div class="hotel-body">
+          <div class="hotel-night">Night 2</div>
+          <div class="hotel-name">Misthill Rest</div>
+          <div class="hotel-city">📍 Nuwara Eliya</div>
+          <div class="hotel-room">Deluxe Room</div>
+        </div>
       </div>
       <div class="hotel-card">
-        <div class="hotel-night">Night 3</div>
-        <div class="hotel-name">The Tea Tree Resort</div>
-        <div class="hotel-city">📍 Ella</div>
-        <div class="hotel-room">Deluxe Room</div>
+        <img class="hotel-img" src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=400&q=80" alt="Ella hotel">
+        <div class="hotel-body">
+          <div class="hotel-night">Night 3</div>
+          <div class="hotel-name">The Tea Tree Resort</div>
+          <div class="hotel-city">📍 Ella</div>
+          <div class="hotel-room">Deluxe Room</div>
+        </div>
       </div>
-      <div class="hotel-card featured">
-        <div class="hotel-night">Nights 4 & 5</div>
-        <div class="hotel-name">Laluna Ayurveda Resort</div>
-        <div class="hotel-city">📍 Bentota</div>
-        <div class="hotel-room">Deluxe Room</div>
+      <div class="hotel-card">
+        <img class="hotel-img" src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=400&q=80" alt="Bentota beach resort">
+        <div class="hotel-body">
+          <div class="hotel-night">Nights 4 & 5</div>
+          <div class="hotel-name">Laluna Ayurveda Resort</div>
+          <div class="hotel-city">📍 Bentota</div>
+          <div class="hotel-room">Deluxe Room</div>
+        </div>
       </div>
     </div>
   </div>
 </div>
 
 <!-- INCLUSIONS -->
-<div style="background: #fff;">
+<div style="background: var(--white);">
   <div class="section">
     <p class="section-eyebrow">What's Covered</p>
     <h2 class="section-title">Package Inclusions</h2>
@@ -616,160 +653,198 @@
       <div class="incl-item"><span class="incl-icon">💧</span> Water Bottle on Arrival</div>
       <div class="incl-item"><span class="incl-icon">📱</span> 1 Free SIM Card on Arrival</div>
       <div class="incl-item"><span class="incl-icon">✈️</span> Airport Pickup & Drop</div>
+      <div class="incl-icon-item"><span class="incl-icon">🛣️</span></div>
       <div class="incl-item"><span class="incl-icon">🛣️</span> Complementary Highway Tickets</div>
       <div class="incl-item"><span class="incl-icon">🍵</span> Tea Factory Visit + Cup of Tea</div>
       <div class="incl-item"><span class="incl-icon">🏭</span> Batik, Spice, Gem & Mask Visits</div>
-      <div class="incl-item"><span class="incl-icon">💆</span> Head & Shoulder Massage at Spice Garden</div>
-      <div class="incl-item"><span class="incl-icon">🎭</span> Free Cultural Show (tickets at Gem Museum)</div>
+      <div class="incl-item"><span class="incl-icon">💆</span> Head & Shoulder Massage</div>
+      <div class="incl-item"><span class="incl-icon">🎭</span> Free Cultural Show Tickets</div>
     </div>
   </div>
 </div>
 
 <!-- ITINERARY -->
-<div style="background: var(--sand);">
+<div style="background: var(--green-pale);">
   <div class="section">
     <p class="section-eyebrow">The Adventure</p>
     <h2 class="section-title">Day-by-Day Itinerary</h2>
 
     <div class="timeline">
 
-      <!-- DAY 1 -->
+      <!-- DAY 1: KANDY -->
       <div class="day-card">
         <div class="day-label">
           <div class="day-num">1</div>
           <div class="day-date">29 JUN<br>SUN</div>
         </div>
         <div class="day-content">
-          <div class="day-route">Airport → Kandy</div>
-          <div class="day-drive">🚗 2 hr 48 min · 122.4 km · Private AC Vehicle</div>
-          <div class="day-title">Elephants, Temples & a Royal City</div>
-          <ul class="activity-list">
-            <li>Airport Pickup & Welcome</li>
-            <li class="paid">Pinnawala Elephant Orphanage $8</li>
-            <li class="paid">Tooth Relic Temple $5</li>
-            <li class="paid">Botanical Garden $8</li>
-            <li>Kandy Gem Museum 🆓</li>
-            <li>Batik Factory 🆓</li>
-            <li>Spice Garden + Herbal Massage 🆓</li>
-            <li>Kandy View Point 🆓</li>
-            <li>Wood Carving Centre 🆓</li>
-            <li>Cultural Show 🆓</li>
-          </ul>
-          <p class="day-note">🌙 Overnight: Ceyloni Panorama Resort, Kandy · Check-in 2 PM</p>
+          <div class="photo-strip p3">
+            <img src="https://images.unsplash.com/photo-1588598198321-9735fd52365c?w=600&q=80" alt="Kandy Temple of the Tooth">
+            <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=300&q=80" alt="Pinnawala Elephant Orphanage">
+          </div>
+          <div class="day-inner">
+            <div class="day-route">Airport → Kandy</div>
+            <div class="day-drive">🚗 2 hr 48 min · 122.4 km · Private AC Vehicle</div>
+            <div class="day-title">Elephants, Temples & a Royal City</div>
+            <ul class="activity-list">
+              <li>Airport Pickup & Welcome</li>
+              <li class="paid">Pinnawala Elephant Orphanage $8</li>
+              <li class="paid">Tooth Relic Temple $5</li>
+              <li class="paid">Botanical Garden $8</li>
+              <li>Kandy Gem Museum 🆓</li>
+              <li>Batik Factory 🆓</li>
+              <li>Spice Garden + Herbal Massage 🆓</li>
+              <li>Kandy View Point 🆓</li>
+              <li>Wood Carving Centre 🆓</li>
+              <li>Cultural Show 🆓</li>
+            </ul>
+            <p class="day-note">🌙 Overnight: Ceyloni Panorama Resort, Kandy &nbsp;·&nbsp; Check-in 2 PM</p>
+          </div>
         </div>
       </div>
 
-      <!-- DAY 2 -->
+      <!-- DAY 2: NUWARA ELIYA -->
       <div class="day-card">
         <div class="day-label">
           <div class="day-num">2</div>
           <div class="day-date">30 JUN<br>MON</div>
         </div>
         <div class="day-content">
-          <div class="day-route">Kandy → Nuwara Eliya</div>
-          <div class="day-drive">🚗 2 hr 20 min · 76.2 km · Private AC Vehicle</div>
-          <div class="day-title">Misty Hills, Tea & Mini England</div>
-          <ul class="activity-list">
-            <li>Ramboda Waterfalls 🆓</li>
-            <li>Mini Waterfalls 🆓</li>
-            <li>Tea Plantations 🆓</li>
-            <li>Scenic Landscape 🆓</li>
-            <li class="paid">Victoria Park $2</li>
-            <li>Seetha Temple 🆓</li>
-            <li>Hanuman Temple 🆓</li>
-            <li class="paid">Gregory Lake $3</li>
-            <li>Strawberry Farm 🆓</li>
-            <li class="paid">Horse Riding $10 ⚡optional</li>
-          </ul>
-          <p class="day-note">🌙 Overnight: Misthill Rest, Nuwara Eliya · Check-in 2 PM</p>
+          <div class="photo-strip p3">
+            <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=600&q=80" alt="Nuwara Eliya tea plantation">
+            <img src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=300&q=80" alt="Ramboda Waterfall Sri Lanka">
+          </div>
+          <div class="day-inner">
+            <div class="day-route">Kandy → Nuwara Eliya</div>
+            <div class="day-drive">🚗 2 hr 20 min · 76.2 km · Private AC Vehicle</div>
+            <div class="day-title">Misty Hills, Tea & Mini England</div>
+            <ul class="activity-list">
+              <li>Ramboda Waterfalls 🆓</li>
+              <li>Mini Waterfalls 🆓</li>
+              <li>Tea Plantations 🆓</li>
+              <li>Scenic Landscape 🆓</li>
+              <li class="paid">Victoria Park $2</li>
+              <li>Seetha Temple 🆓</li>
+              <li>Hanuman Temple 🆓</li>
+              <li class="paid">Gregory Lake $3</li>
+              <li>Strawberry Farm 🆓</li>
+              <li class="paid">Horse Riding $10 ⚡optional</li>
+            </ul>
+            <p class="day-note">🌙 Overnight: Misthill Rest, Nuwara Eliya &nbsp;·&nbsp; Check-in 2 PM</p>
+          </div>
         </div>
       </div>
 
-      <!-- DAY 3 -->
+      <!-- DAY 3: ELLA -->
       <div class="day-card">
         <div class="day-label">
           <div class="day-num">3</div>
           <div class="day-date">01 JUL<br>TUE</div>
         </div>
         <div class="day-content">
-          <div class="day-route">Nuwara Eliya → Ella</div>
-          <div class="day-title">Nine Arches, Peaks & Mountain Magic</div>
-          <ul class="activity-list">
-            <li>Ella Rock 🆓</li>
-            <li>Ella Gap 🆓</li>
-            <li>Little Adam's Peak 🆓</li>
-            <li>Ella Adventure Park</li>
-            <li>Nine Arch Bridge 🆓</li>
-          </ul>
-          <p class="day-note">🚂 Scenic train ride subject to availability · 🌙 Overnight: The Tea Tree Resort, Ella · Check-in 2 PM</p>
+          <div class="photo-strip p3">
+            <img src="https://images.unsplash.com/photo-1609766857042-8b60f9eaae0a?w=600&q=80" alt="Nine Arch Bridge Ella">
+            <img src="https://images.unsplash.com/photo-1586016413664-864c0dd76f53?w=300&q=80" alt="Ella Rock Sri Lanka">
+          </div>
+          <div class="day-inner">
+            <div class="day-route">Nuwara Eliya → Ella</div>
+            <div class="day-title">Nine Arches, Peaks & Mountain Magic</div>
+            <ul class="activity-list">
+              <li>Ella Rock 🆓</li>
+              <li>Ella Gap 🆓</li>
+              <li>Little Adam's Peak 🆓</li>
+              <li>Ella Adventure Park</li>
+              <li>Nine Arch Bridge 🆓</li>
+            </ul>
+            <p class="day-note">🚂 Scenic train ride from NE to Ella — subject to availability &nbsp;·&nbsp; 🌙 Overnight: The Tea Tree Resort, Ella</p>
+          </div>
         </div>
       </div>
 
-      <!-- DAY 4 -->
+      <!-- DAY 4: SOUTHERN COAST -->
       <div class="day-card">
         <div class="day-label">
           <div class="day-num">4</div>
           <div class="day-date">02 JUL<br>WED</div>
         </div>
         <div class="day-content">
-          <div class="day-route">Ella → Bentota via Mirissa · Galle · Hikkaduwa</div>
-          <div class="day-drive">🚗 3 hr 57 min · 253 km · Private AC Vehicle</div>
-          <div class="day-title">Southern Coast — Beaches, Forts & Coral</div>
-          <ul class="activity-list">
-            <li>Secret Beach Mirissa 🆓</li>
-            <li>Coconut Tree Hill 🆓</li>
-            <li class="paid">Whale & Dolphin Watching $50 ⚡optional</li>
-            <li>Galle Dutch Fort 🆓</li>
-            <li class="paid">Hikkaduwa Coral Formations $20</li>
-            <li>Unawatuna Beach 🆓</li>
-            <li class="paid">Water Sports ⚡optional</li>
-          </ul>
-          <p class="day-note">🌙 Overnight: Laluna Ayurveda Resort, Bentota (Night 1 of 2)</p>
+          <div class="photo-strip p3-alt">
+            <img src="https://images.unsplash.com/photo-1566438480900-0609be27a4be?w=300&q=80" alt="Mirissa Beach Sri Lanka">
+            <img src="https://images.unsplash.com/photo-1548013146-72479768bada?w=300&q=80" alt="Galle Fort Sri Lanka">
+            <img src="https://images.unsplash.com/photo-1559827291-72ee739d0d9a?w=300&q=80" alt="Hikkaduwa coral beach">
+          </div>
+          <div class="day-inner">
+            <div class="day-route">Ella → Mirissa → Galle → Hikkaduwa → Bentota</div>
+            <div class="day-drive">🚗 3 hr 57 min · 253 km · Private AC Vehicle</div>
+            <div class="day-title">Southern Coast — Beaches, Forts & Coral</div>
+            <ul class="activity-list">
+              <li>Secret Beach Mirissa 🆓</li>
+              <li>Coconut Tree Hill 🆓</li>
+              <li class="paid">Whale & Dolphin Watching $50 ⚡optional</li>
+              <li>Galle Dutch Fort 🆓</li>
+              <li class="paid">Hikkaduwa Coral Formations $20</li>
+              <li>Unawatuna Beach 🆓</li>
+              <li class="paid">Water Sports ⚡optional</li>
+            </ul>
+            <p class="day-note">🌙 Overnight: Laluna Ayurveda Resort, Bentota (Night 1 of 2)</p>
+          </div>
         </div>
       </div>
 
-      <!-- DAY 5 -->
+      <!-- DAY 5: BENTOTA -->
       <div class="day-card">
         <div class="day-label">
           <div class="day-num">5</div>
           <div class="day-date">03 JUL<br>THU</div>
         </div>
         <div class="day-content">
-          <div class="day-route">Bentota Local Day</div>
-          <div class="day-title">Turtles, Rivers & the Lagoon</div>
-          <ul class="activity-list">
-            <li class="paid">Kosgoda Turtle Hatchery $5</li>
-            <li>Mask Museum, Ambalangoda 🆓</li>
-            <li class="paid">Madu Ganga River Safari $20</li>
-            <li>Ma Duwa Village 🆓</li>
-            <li class="paid">Water Sports ⚡optional</li>
-          </ul>
-          <p class="day-note">🌙 Overnight: Laluna Ayurveda Resort, Bentota (Night 2 of 2)</p>
+          <div class="photo-strip p2">
+            <img src="https://images.unsplash.com/photo-1596422846543-75c6fc197f07?w=400&q=80" alt="Sea turtles Sri Lanka">
+            <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=400&q=80" alt="Madu Ganga River Safari">
+          </div>
+          <div class="day-inner">
+            <div class="day-route">Bentota Local Day</div>
+            <div class="day-title">Turtles, Rivers & the Lagoon</div>
+            <ul class="activity-list">
+              <li class="paid">Kosgoda Turtle Hatchery $5</li>
+              <li>Mask Museum, Ambalangoda 🆓</li>
+              <li class="paid">Madu Ganga River Safari $20</li>
+              <li>Ma Duwa Village 🆓</li>
+              <li class="paid">Water Sports ⚡optional</li>
+            </ul>
+            <p class="day-note">🌙 Overnight: Laluna Ayurveda Resort, Bentota (Night 2 of 2)</p>
+          </div>
         </div>
       </div>
 
-      <!-- DAY 6 -->
+      <!-- DAY 6: COLOMBO -->
       <div class="day-card">
         <div class="day-label">
           <div class="day-num">6</div>
           <div class="day-date">04 JUL<br>FRI</div>
         </div>
         <div class="day-content">
-          <div class="day-route">Bentota → Colombo → Airport</div>
-          <div class="day-drive">🚗 1 hr 26 min · 82.4 km · Private AC Vehicle</div>
-          <div class="day-title">Capital City Farewell & Departure</div>
-          <ul class="activity-list">
-            <li>Galle Face Green 🆓</li>
-            <li>Old Parliament 🆓</li>
-            <li>Independence Square 🆓</li>
-            <li class="paid">Gangarama Temple $2</li>
-            <li>Local Market 🆓</li>
-            <li>Floating Market 🆓</li>
-            <li>Beira Lake 🆓</li>
-            <li>Odel Shopping 🆓</li>
-            <li>House of Fashion 🆓</li>
-          </ul>
-          <p class="day-note">✈️ Transfer to Airport · Check-out by 12 PM · Depart for home!</p>
+          <div class="photo-strip p3">
+            <img src="https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?w=600&q=80" alt="Colombo city Sri Lanka">
+            <img src="https://images.unsplash.com/photo-1584811644165-33db3ea72527?w=300&q=80" alt="Gangarama Temple Colombo">
+          </div>
+          <div class="day-inner">
+            <div class="day-route">Bentota → Colombo → Airport</div>
+            <div class="day-drive">🚗 1 hr 26 min · 82.4 km · Private AC Vehicle</div>
+            <div class="day-title">Capital City Farewell & Departure</div>
+            <ul class="activity-list">
+              <li>Galle Face Green 🆓</li>
+              <li>Old Parliament 🆓</li>
+              <li>Independence Square 🆓</li>
+              <li class="paid">Gangarama Temple $2</li>
+              <li>Local Market 🆓</li>
+              <li>Floating Market 🆓</li>
+              <li>Beira Lake 🆓</li>
+              <li>Odel Shopping 🆓</li>
+              <li>House of Fashion 🆓</li>
+            </ul>
+            <p class="day-note">✈️ Airport transfer · Check-out by 12 PM · Safe travels home!</p>
+          </div>
         </div>
       </div>
 
@@ -781,11 +856,11 @@
 <div class="cost-band">
   <p class="section-eyebrow">The Numbers</p>
   <div class="cost-main">₹24,000</div>
-  <p class="cost-sub">Per person · Triple sharing · 3 Adults</p>
+  <p class="cost-sub">Per person &nbsp;·&nbsp; Triple sharing &nbsp;·&nbsp; 3 Adults</p>
   <div class="cost-breakdown">
     <div class="cost-item"><strong>₹72,000</strong> Total Package (3 pax)</div>
     <div class="cost-item"><strong>~$73+</strong> Extra per person (entry fees)</div>
-    <div class="cost-item"><strong>~₹500–800</strong> Per meal, per person</div>
+    <div class="cost-item"><strong>₹500–800</strong> Per meal, per person</div>
   </div>
 </div>
 
@@ -809,11 +884,11 @@
 
 <!-- FOOTER -->
 <div class="footer">
-  <p>Organised by <strong>View Holiday Trip Pvt. Ltd.</strong> · IATA Accredited · ISO 9001:2015 · Est. 2014</p>
-  <p style="margin-top:8px;">Expert Mogna: <strong>9311771179</strong> · Director Dinesh Kumar: 9311539278 · Office: 011 46008566</p>
-  <p style="margin-top:8px;">info@viewholidaytrip.com · viewholidaytrip.com</p>
-  <p style="margin-top:8px;">Bank: ICICI · A/C: 344305000477 · IFSC: ICIC0003443 · View Holiday Trip Pvt. Ltd.</p>
-  <p style="margin-top:16px; font-size:10px; opacity:0.4;">Quote only · Not a booking confirmation · Rates subject to availability · Trip ID: 128540</p>
+  <p>Organised by <strong>View Holiday Trip Pvt. Ltd.</strong> &nbsp;·&nbsp; IATA Accredited &nbsp;·&nbsp; ISO 9001:2015 &nbsp;·&nbsp; Est. 2014</p>
+  <p>Expert Mogna: <strong>9311771179</strong> &nbsp;·&nbsp; Director Dinesh Kumar: 9311539278 &nbsp;·&nbsp; Office: 011 46008566</p>
+  <p>info@viewholidaytrip.com &nbsp;·&nbsp; viewholidaytrip.com</p>
+  <p style="margin-top:6px;">Bank: ICICI &nbsp;·&nbsp; A/C: 344305000477 &nbsp;·&nbsp; IFSC: ICIC0003443 &nbsp;·&nbsp; View Holiday Trip Pvt. Ltd.</p>
+  <p style="margin-top:14px; font-size:10px; opacity:0.35;">Quote only · Not a booking confirmation · Rates subject to availability · Trip ID: 128540</p>
 </div>
 
 </body>
